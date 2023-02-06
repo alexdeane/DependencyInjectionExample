@@ -39,7 +39,7 @@ public class AppController
         var weatherForecasts = _repository.GetForecasts();
         var results = weatherForecasts.Select(_mapper.Map);
 
-        return _formatter.SerializeResults(results.ToArray())
+        return _formatter.SerializeResults(results)
             .ContinueWith(x =>
             {
                 Console.WriteLine(x.Result);
